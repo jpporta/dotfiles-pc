@@ -197,8 +197,8 @@ bindcode $mod+Shift+34 move container to workspace number $ws6
 # bindsym $mod+Shift+9 move container to workspace number $ws19
 
 # gaps
-gaps inner 5
-gaps outer 5
+gaps inner 10
+gaps outer 20
 
 # Screen shot
 bindsym Ctrl+Shift+3 exec --no-startup-id maim | xclip -selection clipboard -t image/png
@@ -270,4 +270,8 @@ exec_always setxkbmap -layout "us,us" -variant ",intl" -option 'grp:alt_shift_to
 exec_always "feh --bg-center $HOME/Documents/wallpapers/$(ls $HOME/Documents/wallpapers | shuf -n 1)"
 
 exec_always picom 
-exec_always ~/.config/polybar/launch.sh
+exec_always ~/.config/polybar/forest/launch.sh
+exec_always "xrandr --output DP-4 --left-of DP-2"
+
+default_border pixel 1
+default_floating_border pixel 1
