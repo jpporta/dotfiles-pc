@@ -212,18 +212,19 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # Create Log out, Reboot, Poweroff bindings
-mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff" {
-        bindsym r exec --no-startup-id systemctl reboot
-        bindsym s exec --no-startup-id systemctl suspend; mode "default"
-        bindsym l exit
-        bindsym p exec --no-startup-id systemctl poweroff
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+Shift+e mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff"
+# mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff" {
+#         bindsym r exec --no-startup-id systemctl reboot
+#         bindsym s exec --no-startup-id systemctl suspend; mode "default"
+#         bindsym l exit
+#         bindsym p exec --no-startup-id systemctl poweroff
+#
+#         # back to normal: Enter or Escape
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+#
+# bindsym $mod+Shift+e mode "(S)uspend, (L)ogout, (R)eboot, (P)oweroff"
+bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
 
 bindsym $mod+Shift+x exec "i3lock -c 000000"
 exec "xautolock -detectsleep -time 5 -locker \"i3lock -c 000000\""
