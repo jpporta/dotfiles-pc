@@ -137,3 +137,6 @@ export PATH=$BUN_INSTALL/bin:$PATH
 export PATH=~/.local/scripts:$PATH
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
+
+# Keyboard
+setxkbmap -layout us,us -variant ,intl -option grp:win_space_toggle
