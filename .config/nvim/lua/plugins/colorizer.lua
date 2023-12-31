@@ -1,1 +1,1 @@
-return {'norcalli/nvim-colorizer.lua', lazy = true, opts = {}}
+return {'norcalli/nvim-colorizer.lua', event = "VeryLazy", opts = {}}
