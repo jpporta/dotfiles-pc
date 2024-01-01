@@ -140,3 +140,9 @@ unset ZSH_AUTOSUGGEST_USE_ASYNC
 
 # Keyboard
 setxkbmap -layout us,us -variant ,intl -option grp:win_space_toggle
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# Eazy new tmux session to current dir
+alias tn="tmux new -s $(pwd | sed 's/.*\///g')"
