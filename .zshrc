@@ -146,3 +146,11 @@ eval "$(zoxide init zsh)"
 
 # Eazy new tmux session to current dir
 alias tn="tmux new -s $(pwd | sed 's/.*\///g')"
+
+# pnpm
+export PNPM_HOME="/home/jpporta/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
