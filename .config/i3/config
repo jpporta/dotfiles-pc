@@ -199,6 +199,7 @@ bindcode $mod+Shift+34 move container to workspace number $ws6
 # gaps
 gaps inner 10
 gaps outer 20
+gaps top 50
 
 # Screen shot
 bindsym Ctrl+Shift+3 exec --no-startup-id maim | xclip -selection clipboard -t image/png
