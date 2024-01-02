@@ -275,3 +275,9 @@ exec_always "xrandr --output DP-4 --left-of DP-2"
 
 default_border pixel 1
 default_floating_border pixel 1
+
+# Screenshot
+bindsym $mod+Shift+3 exec "scrot -M 1 ~/Captures/Screenshots/$(date '+%FT%H-%M-%S').png"
+bindsym $mod+Shift+4 exec "scrot -M 0 ~/Captures/Screenshots/$(date '+%FT%H-%M-%S').png"
+bindsym $mod+Shift+5 exec "scrot -u ~/Captures/Screenshots/$(date '+%FT%H-%M-%S').png"
+bindsym $mod+Shift+6 exec "sleep 0.2 && scrot -s -f ~/Captures/Screenshots/$(date '+%FT%H-%M-%S').png"
