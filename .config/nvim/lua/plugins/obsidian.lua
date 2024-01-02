@@ -7,5 +7,10 @@ return {
         "BufReadPre " .. vim.fn.expand("~") .. "/Obsidian/**.md"
     },
     dependencies = {"nvim-lua/plenary.nvim"},
-    opts = {workspaces = {{name = "Brain", path = "~/Obsidian"}}}
+    opts = {
+        workspaces = {
+            {name = "Work", path = "~/Obsidian/Avodah"},
+            {name = "Brain", path = "~/Obsidian/Brain"}
+        }
+    }
 }
