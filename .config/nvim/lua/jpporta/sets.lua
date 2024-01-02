@@ -21,6 +21,7 @@ vim.o.cursorline = true
 vim.cmd.set('cursorline')
 vim.cmd.set('cursorcolumn')
 vim.cmd.colorscheme 'catppuccin-mocha'
+vim.opt.conceallevel = 1
 vim.o.background = 'dark'
 vim.api.nvim_create_user_command("CpFullPath", function()
     local path = vim.fn.expand("%:p")
