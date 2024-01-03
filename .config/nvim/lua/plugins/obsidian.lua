@@ -2,10 +2,7 @@ return {
     'epwalsh/obsidian.nvim',
     version = "*",
     lazy = "true",
-    event = {
-        "BufNewFile " .. vim.fn.expand("~") .. "/Obsidian/**.md",
-        "BufReadPre " .. vim.fn.expand("~") .. "/Obsidian/**.md"
-    },
+    event = "VeryLazy",
     dependencies = {"nvim-lua/plenary.nvim"},
     -- way then set 'mappings = {}'.
     opts = {
@@ -39,7 +36,8 @@ return {
                 id = note.id,
                 aliases = note.aliases,
                 tags = note.tags,
-                title = note.aliases[1]
+                title = note.aliases[1],
+                createdAt = os.date("%Y-%m-%d %H:%M:%S")
             }
             -- `note.metadata` contains any manually added fields in the frontmatter.
             -- So here we just make sure those fields are kept in the frontmatter.
@@ -87,8 +85,8 @@ return {
             }
         },
         workspaces = {
-            {name = "Work", path = "~/Obsidian/Avodah"},
-            {name = "Brain", path = "~/Obsidian/Brain"}
+            {name = "Work", path = "~/HD/Obsidian/Avodah"},
+            {name = "Brain", path = "~/HD/Obsidian/Brain"}
         }
     }
 }
