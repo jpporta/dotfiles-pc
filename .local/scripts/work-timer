@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+TRACKER_FILE=~/HD/timetracker.csv
+IFS=,
+
+res=$(grep -e "$(date '+%F')" $TRACKER_FILE)
+sum=0
+while read line
+do
+				read -ra data <<< $line
+				if [[ ${data[2]} != "" ]]
+				then
+								sum=`expr $sum + ${data[2]} - ${data[1]}`
+				else
+								NOW=$(("$(date '+%s')"))
+								DIFF=`expr $NOW - ${data[1]}`
+								sum=`expr $sum + $DIFF`
+				fi
+done <<< "$res"
+date -d@$sum -u "+%H:%M:%S"
+

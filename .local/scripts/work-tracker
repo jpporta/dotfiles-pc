@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+TRACKER_FILE=~/HD/timetracker.csv
+IFS=, read -r cur_day start_time end_time < <(tail -n1 $TRACKER_FILE)
+
+echo $cur_day $start_time $end_time
+if [[ $cur_day == "" || $end_time != "" ]]
+then
+				echo "$(date '+%F'),$(date '+%s')," >> $TRACKER_FILE
+				exit 0
+fi
+
+if [[ $end_time == "" ]]
+then
+				sed -i '$d' $TRACKER_FILE 
+				echo "$cur_day,$start_time,$(date '+%s')" >> $TRACKER_FILE
+fi
