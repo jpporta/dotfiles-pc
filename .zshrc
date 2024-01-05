@@ -157,4 +157,4 @@ esac
 
 export BROWSER=firefox
 
-chown $USER:$USER -R ~/HD
+# chown $USER:$USER -R ~/HD
