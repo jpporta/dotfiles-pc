@@ -13,8 +13,6 @@ return {
                     'typescript', 'vim', 'graphql', 'markdown',
                     'markdown_inline'
                 },
-                sync_install = true,
-                ignore_install = {'haskell'},
                 auto_install = false,
                 highlight = {enable = true},
                 indent = {enable = true, disable = {'python'}},

@@ -51,6 +51,12 @@ return {
             pyright = {},
             tsserver = {},
             graphql = {},
+            tailwindcss = {
+                filetypes = {
+                    "html", "css", "javascript", "typescript",
+                    "typescriptreact", "javascriptreact"
+                }
+            },
             lua_ls = {
                 Lua = {
                     workspace = {checkThirdParty = false},
@@ -71,11 +77,12 @@ return {
                 require('lspconfig')[server_name].setup {
                     capabilities = capabilities,
                     on_attach = on_attach,
-                    settings = servers[server_name]
+                    settings = servers[server_name],
+                    filetypes = (servers[server_name] or {}).filetypes
                 }
             end
         }
     end,
-    event = "VeryLazy"
+    lazy = true
 
 }
