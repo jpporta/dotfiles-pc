@@ -5,62 +5,68 @@ return {
         dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
         build = ":TSUpdate",
         event = "VeryLazy",
-        opts = {
-            ensure_installed = {
-                'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript',
-                'vim', 'graphql', 'markdown', 'markdown_inline'
-            },
-            auto_install = false,
-            highlight = {enable = true},
-            indent = {enable = true, disable = {'python'}},
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = '<c-space>',
-                    node_incremental = '<c-space>',
-                    scope_incremental = '<c-s>',
-                    node_decremental = '<M-space>'
-                }
-            },
-            textobjects = {
-                select = {
+        config = function()
+            ---@diagnostic disable-next-line: missing-fields
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = {
+                    'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx',
+                    'typescript', 'vim', 'graphql', 'markdown',
+                    'markdown_inline'
+                },
+                sync_install = true,
+                ignore_install = {'haskell'},
+                auto_install = false,
+                highlight = {enable = true},
+                indent = {enable = true, disable = {'python'}},
+                incremental_selection = {
                     enable = true,
-                    lookahead = true,
                     keymaps = {
-                        ['aa'] = '@parameter.outer',
-                        ['ia'] = '@parameter.inner',
-                        ['af'] = '@function.outer',
-                        ['if'] = '@function.inner',
-                        ['ac'] = '@class.outer',
-                        ['ic'] = '@class.inner'
+                        init_selection = '<c-space>',
+                        node_incremental = '<c-space>',
+                        scope_incremental = '<c-s>',
+                        node_decremental = '<M-space>'
                     }
                 },
-                move = {
-                    enable = true,
-                    set_jumps = true,
-                    goto_next_start = {
-                        [']m'] = '@function.outer',
-                        [']]'] = '@class.outer'
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ['aa'] = '@parameter.outer',
+                            ['ia'] = '@parameter.inner',
+                            ['af'] = '@function.outer',
+                            ['if'] = '@function.inner',
+                            ['ac'] = '@class.outer',
+                            ['ic'] = '@class.inner'
+                        }
                     },
-                    goto_next_end = {
-                        [']M'] = '@function.outer',
-                        [']['] = '@class.outer'
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            [']m'] = '@function.outer',
+                            [']]'] = '@class.outer'
+                        },
+                        goto_next_end = {
+                            [']M'] = '@function.outer',
+                            [']['] = '@class.outer'
+                        },
+                        goto_previous_start = {
+                            ['[m'] = '@function.outer',
+                            ['[['] = '@class.outer'
+                        },
+                        goto_previous_end = {
+                            ['[M'] = '@function.outer',
+                            ['[]'] = '@class.outer'
+                        }
                     },
-                    goto_previous_start = {
-                        ['[m'] = '@function.outer',
-                        ['[['] = '@class.outer'
-                    },
-                    goto_previous_end = {
-                        ['[M'] = '@function.outer',
-                        ['[]'] = '@class.outer'
+                    swap = {
+                        enable = true,
+                        swap_next = {['<leader>sa'] = '@parameter.inner'},
+                        swap_previous = {['<leader>sA'] = '@parameter.inner'}
                     }
-                },
-                swap = {
-                    enable = true,
-                    swap_next = {['<leader>sa'] = '@parameter.inner'},
-                    swap_previous = {['<leader>sA'] = '@parameter.inner'}
                 }
-            }
-        }
-    }, {'nvim-treesitter/nvim-treesitter-context'}
+            })
+        end
+    }
 }

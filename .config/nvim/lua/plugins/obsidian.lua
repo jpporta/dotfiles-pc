@@ -23,12 +23,27 @@ return {
                 opts = {buffer = true}
             }
         },
+        daily_notes = {template = "daily.md"},
         templates = {
             subdir = "templates",
             date_format = "%Y-%m-%d",
             time_format = "%H:%M",
             -- A map for custom variables, the key should be the variable and the value a function
-            substitutions = {}
+            substitutions = {
+                date_format = function()
+                    return os.date("%Y-%m-%d")
+                end,
+                yesterday = function()
+                    return os.date("%Y-%m-%d", os.time() - 86400)
+                end,
+                tomorrow = function()
+                    return os.date("%Y-%m-%d", os.time() + 86400)
+                end,
+                date_full = function()
+                    return os.date("%B %-d, %Y")
+                end
+
+            }
         },
         note_frontmatter_func = function(note)
             -- This is equivalent to the default frontmatter function.
