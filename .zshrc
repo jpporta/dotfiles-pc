@@ -145,7 +145,7 @@ setxkbmap -layout us,us -variant ,intl -option grp:win_space_toggle
 eval "$(zoxide init zsh)"
 
 # Eazy new tmux session to current dir
-alias tn="tmux new -s $(pwd | sed 's/.*\///g')"
+alias tn="new-session"
 
 # pnpm
 export PNPM_HOME="/home/jpporta/.local/share/pnpm"
