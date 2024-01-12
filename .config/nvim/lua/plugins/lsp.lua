@@ -21,7 +21,6 @@ return {
             end
             nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-            imap('<C-i>', vim.lsp.buf.completion, "Completion")
             nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
             nmap('gr', require('telescope.builtin').lsp_references,
                  '[G]oto [R]eferences')
@@ -40,48 +39,22 @@ return {
                  '[W]orkspace [A]dd Folder')
             nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder,
                  '[W]orkspace [R]emove Folder')
-            nmap('<leader>f', '<Cmd>Neoformat<CR>', "[F]ormat")
             nmap('<leader>wl', function()
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, '[W]orkspace [L]ist Folders')
         end
 
-        local servers = {
-            clangd = {},
-            pyright = {},
-            tsserver = {},
-            graphql = {},
-            tailwindcss = {
-                filetypes = {
-                    "html", "css", "javascript", "typescript",
-                    "typescriptreact", "javascriptreact"
-                }
-            },
-            lua_ls = {
-                Lua = {
-                    workspace = {checkThirdParty = false},
-                    telemetry = {enable = false},
-                    diagnostics = {globals = {"vim"}}
-                }
-
-            }
-        }
-
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities =
-            require('cmp_nvim_lsp').default_capabilities(capabilities)
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         local mason_lspconfig = require 'mason-lspconfig'
-        mason_lspconfig.setup {ensure_installed = vim.tbl_keys(servers)}
-        mason_lspconfig.setup_handlers {
+        mason_lspconfig.setup({})
+        mason_lspconfig.setup_handlers({
             function(server_name)
                 require('lspconfig')[server_name].setup {
                     capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = servers[server_name],
-                    filetypes = (servers[server_name] or {}).filetypes
+                    on_attach = on_attach
                 }
             end
-        }
+        })
     end,
     lazy = true
 

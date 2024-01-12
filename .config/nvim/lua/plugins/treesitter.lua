@@ -25,6 +25,7 @@ return {
                         node_decremental = '<M-space>'
                     }
                 },
+
                 textobjects = {
                     select = {
                         enable = true,
