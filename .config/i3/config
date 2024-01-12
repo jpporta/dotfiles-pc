@@ -267,7 +267,7 @@ exec_always setxkbmap -layout "us,us" -variant ",intl" -option 'grp:alt_shift_to
 # position top
 # }
 
-exec_always "feh --bg-center $HOME/Documents/wallpapers/$(ls $HOME/Documents/wallpapers | shuf -n 1)"
+exec_always "feh --bg-center $HOME/HD/wallpapers/$(ls $HOME/HD/wallpapers | shuf -n 1)"
 
 exec_always picom 
 exec_always ~/.config/polybar/forest/launch.sh
