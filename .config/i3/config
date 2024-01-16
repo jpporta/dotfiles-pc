@@ -290,5 +290,5 @@ assign [class="firefox"] $ws1
 assign [class="Slack"] $ws2
 assign [class="zoom"] $ws3
 assign [class="obsidian"] $ws5
-assign [class="thunderbird"] $ws5
+assign [class="thunderbird"] $ws3
 assign [class="Spotify"] $ws6
