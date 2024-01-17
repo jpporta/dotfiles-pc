@@ -10,8 +10,7 @@ then
 fi
 if [[ -z $(pgrep -x "obsidian") ]]
 then
-				flatpak run md.obsidian.Obsidian 2>&1 /dev/null &
+				flatpak run md.obsidian.Obsidian & 
 fi
 
-killall slack 2>&1 /dev/null
-flatpak run com.slack.Slack 2>&1 /dev/null &
+slack &
