@@ -155,5 +155,6 @@ esac
 export BROWSER=firefox
 alias tx="tmuxinator"
 
-# chown $USER:$USER -R ~/HD
+export PATH=$PATH:`go env GOPATH`/bin
+
 
