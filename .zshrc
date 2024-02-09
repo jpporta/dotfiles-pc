@@ -157,4 +157,4 @@ alias tx="tmuxinator"
 
 export PATH=$PATH:`go env GOPATH`/bin
 
-
+alias copy="xclip -sel clip"
