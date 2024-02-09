@@ -1,26 +1,13 @@
 #!/usr/bin/bash
 
-TRACKER_FILE=~/HD/timetracker.csv
-IFS=,
+res=$(curl -s http://dev.joaoporta.tech:8080/timetracker)
 
-res=$(grep -e "$(date '+%F')" $TRACKER_FILE)
-sum=0
-if [[ $res == "" ]]
-then
-				echo "No work"
-				exit 0
+str=$(echo $res | jq -r '.TotalToday')
+working=$(echo $res | jq -r '.IsWorking')
+
+if [ $working = "true" ]; then
+		echo "%{F#a6e3a1}$str"
+else
+		echo "%{F#f38ba8}$str"
 fi
-while read line
-do
-				read -ra data <<< $line
-				if [[ ${data[2]} != "" ]]
-				then
-								sum=`expr $sum + ${data[2]} - ${data[1]}`
-				else
-								NOW=$(("$(date '+%s')"))
-								DIFF=`expr $NOW - ${data[1]}`
-								sum=`expr $sum + $DIFF`
-				fi
-done <<< "$res"
-date -d@$sum -u "+%H:%M:%S"
 
