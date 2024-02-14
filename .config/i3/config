@@ -262,3 +262,7 @@ assign [class="zoom"] $ws3
 assign [class="obsidian"] $ws5
 assign [class="thunderbird"] $ws3
 assign [class="Spotify"] $ws6
+
+
+# Notification
+exec_always --no-startup-id wired

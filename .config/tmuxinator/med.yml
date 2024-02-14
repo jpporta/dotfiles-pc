@@ -3,7 +3,7 @@ root: ~/HD/work/avodah-med/
 
 
 # Project hooks
-on_project_start: git fetch all
+on_project_start: git fetch origin
 
 windows:
   - editor:

@@ -5,6 +5,11 @@ res=$(curl -s http://dev.joaoporta.tech:8080/timetracker)
 str=$(echo $res | jq -r '.TotalToday')
 working=$(echo $res | jq -r '.IsWorking')
 
+if [ -z $working ]
+then
+	exit 0
+fi
+
 if [ $working = "true" ]; then
 		echo "%{F#a6e3a1}$str"
 else

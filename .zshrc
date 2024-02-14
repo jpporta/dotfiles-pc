@@ -158,3 +158,4 @@ alias tx="tmuxinator"
 export PATH=$PATH:`go env GOPATH`/bin
 
 alias copy="xclip -sel clip"
+alias gup="git add --all && git commit -m \"$(date)\" && git push"
