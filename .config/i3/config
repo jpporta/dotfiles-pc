@@ -265,4 +265,4 @@ assign [class="Spotify"] $ws6
 
 
 # Notification
-exec_always --no-startup-id wired
+exec_always --no-startup-id dunst

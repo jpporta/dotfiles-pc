@@ -2,6 +2,10 @@
 # See dunst(5) for all configuration options
 
 [global]
+frame_color = "#89B4FA"
+separator_color= frame
+
+
     monitor = 0
 
     follow = none
@@ -284,27 +288,24 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    frame_color = "#3B7C87"
-    foreground = "#3B7C87"
-    background = "#3B7C8755"
-    #background = "#2B313C"
+		background = "#1E1E2E"
+		foreground = "#CDD6F4"
     timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    frame_color = "#5B8234"
-    foreground = "#5B8234"
-    background = "#5B823455"
+		background = "#1E1E2E"
+		foreground = "#CDD6F4"
     #background = "#2B313CAA"
     timeout = 6
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    frame_color = "#B7472A"
-    foreground = "#B7472A"
-    background = "#B7472A55"
+		background = "#1E1E2E"
+		foreground = "#CDD6F4"
+		frame_color = "#FAB387"
     #background = "#2B313C"
     timeout = 8
     # Icon for notifications with critical urgency, uncomment to enable
