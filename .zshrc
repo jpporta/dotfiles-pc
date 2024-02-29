@@ -160,3 +160,5 @@ export PATH=$PATH:`go env GOPATH`/bin
 alias copy="xclip -sel clip"
 alias gup="git add --all && git commit -m \"$(date)\" && git push"
 alias bgo="kitten @ set-background-opacity"
+alias gg="git log --graph --pretty=format:'%Cred%h%Creset %ad %s %C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --date=short"
+alias gga="git log --graph --full-history --all --pretty=format:'%Cred%h%Creset %ad %s %C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --date=short"
